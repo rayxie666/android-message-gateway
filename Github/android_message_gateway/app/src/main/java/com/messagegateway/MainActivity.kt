@@ -1,7 +1,10 @@
 package com.messagegateway
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.os.PowerManager
+import android.provider.Settings
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -23,10 +26,23 @@ class MainActivity : ComponentActivity() {
             startForegroundService(Intent(this, ForwardingService::class.java))
         }
 
+        // Request to disable battery optimization
+        requestIgnoreBatteryOptimization()
+
         setContent {
             MessageGatewayTheme {
                 AppNavigation()
             }
+        }
+    }
+
+    private fun requestIgnoreBatteryOptimization() {
+        val powerManager = getSystemService(POWER_SERVICE) as PowerManager
+        if (!powerManager.isIgnoringBatteryOptimizations(packageName)) {
+            val intent = Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS).apply {
+                data = Uri.parse("package:$packageName")
+            }
+            startActivity(intent)
         }
     }
 }
