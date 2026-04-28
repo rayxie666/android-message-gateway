@@ -2,7 +2,7 @@
 
 An Android app that listens for incoming SMS messages and forwards them via **SMS** or **Email** based on configurable rules.
 
-[![Download APK](https://img.shields.io/badge/Download-APK_v1.0-brightgreen?style=for-the-badge&logo=android)](https://github.com/rayxie666/android-message-gateway/releases/download/v1.0/MessageGateway-v1.0-debug.apk)
+[![Download APK](https://img.shields.io/badge/Download-APK_v1.0-brightgreen?style=for-the-badge&logo=android)](https://github.com/rayxie666/android-message-gateway/releases/download/v1.0/message-gateway.apk)
 
 > Transfer the APK to your Android phone, open it to install (allow "Install from unknown sources" if prompted).
 
